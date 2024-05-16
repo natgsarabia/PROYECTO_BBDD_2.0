@@ -42,14 +42,14 @@ main{
     align-items: center;
     justify-content: center;
     font-family: 'MADE Coachella', sans-serif;
+    border-radius: 5%;
     
 }
 .box{
     margin-top: 5%;
     display:flex;
-    background-color: rgb(26, 170, 170,0.7);
-    border:solid 4px rgb(37, 0, 55);
-    border-radius: 3%;
+    background-color: rgb(178, 182, 185,0.7);
+    border-radius: 5%;
     width: 60%;
     height: 170%;
     align-items: center;
