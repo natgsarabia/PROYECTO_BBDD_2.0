@@ -1,0 +1,76 @@
+@import url('https://fonts.cdnfonts.com/css/made-coachella');
+
+html{
+    margin-top: 0%;
+    padding: 0%;
+}
+
+/* HEADER */
+.navbar{
+    font-family: 'MADE Coachella', sans-serif;
+    background-color: bisque;
+    color: rgb(6, 6, 63);
+    height: 50px;
+}
+header{
+    background-image: url("https://videocdn.cdnpk.net/joy/content/video/premium/partners0392/thumbnails/BB_cd85113b-ea9a-4890-9d61-8a4611f1f0b1_large.jpg") ; 
+    border:solid 4px black;  
+    background-size: cover;
+    margin-top: -20px;
+}
+
+.carousel-item{
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+
+body{ 
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center ;
+    margin-top:0;
+    padding: 0%;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+/* MAIN */
+main{
+    display:block;
+    align-items: center;
+    justify-content: center;
+    font-family: 'MADE Coachella', sans-serif;
+    
+}
+
+
+
+/* FOOTER */
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 28%; 
+    background-color: #caced1;
+    text-align: center;
+}
+footer .col-lg-2 img {
+    max-width: 100%;
+    height: auto; 
+}
+
+footer .col-lg-2 {
+    flex: 0 0 16.666%; 
+}
+
+.text-center.p-3 {
+    background-color: rgba(0, 0, 0, 0.2);
+    margin: 0;
+}
+
+
+

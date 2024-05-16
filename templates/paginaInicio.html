@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Contaminación</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/paginaInicio.css')}}">
+    <link href="https://fonts.cdnfonts.com/css/made-coachella" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" href=""></a>
+        </nav>
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <p ><img src="{{ url_for('static', filename='/assets/logo.png') }}" height="150px" width="150px" alt="First slide"></p>
+              </div>             
+            </div>
+        </div>
+    </header>
+    
+    <main class="container">   
+        <form class="box" action="/paginaInicio" method="POST">
+            <div class="form">
+                <span class="neighborhood">
+                    <p>SELECCIONE UN BARRIO:</p>
+                    <select name="barrioHTML">
+                        <option disabled selected>Seleccione un barrio</option>
+                        {% for barrio in listaBarrios %}
+                            <option value="{{barrio}}">{{barrio}}</option>
+                        {% endfor %}
+                    </select>
+                </span>
+
+                <span class="day">
+                    <p>SELECCIONE UN DIA:</p> 
+                    <input type="number" id="dia" name="dia" min="1" max="31"><br><br>                
+                </span>  
+            </div>
+            <button type="submit" style="background-color: rgb(37, 0, 55); color:rgb(26, 170, 170); height: 70px;">Consultar Información</button> 
+        </form>
+    </main>
+
+    <footer class="text-center text-white" style="background-color: #caced1;">
+        <!-- Grid container -->
+        <div class="container p-4">
+        <!-- Section: Images -->
+        <section class="">
+            <div class="row">
+            <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+                <div
+                    class="bg-image hover-overlay ripple shadow-1-strong rounded"
+                    data-ripple-color="light"
+                    >
+                <img
+                        src="https://img.goodfon.com/original/2048x1344/d/4c/barcelona-city-barselona-ispaniia.jpg"
+                        class="w-100"
+                        />
+                <a href="#!">
+                    <div
+                        class="mask"
+                        style="background-color: rgba(251, 251, 251, 0.2);"
+                        ></div>
+                </a>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+                <div
+                    class="bg-image hover-overlay ripple shadow-1-strong rounded"
+                    data-ripple-color="light"
+                    >
+                <img
+                        src="https://wallpapercave.com/wp/wp1825720.jpg"
+                        class="w-100"
+                        />
+                <a href="#!">
+                    <div
+                        class="mask"
+                        style="background-color: rgba(251, 251, 251, 0.2);"
+                        ></div>
+                </a>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+                <div
+                    class="bg-image hover-overlay ripple shadow-1-strong rounded"
+                    data-ripple-color="light"
+                    >
+                <img
+                        src="https://a.cdn-hotels.com/gdcs/production24/d753/82f28000-df2d-44ba-880f-d010ec2f8071.jpg"
+                        class="w-100"
+                        />
+                <a href="#!">
+                    <div
+                        class="mask"
+                        style="background-color: rgba(251, 251, 251, 0.2);"
+                        ></div>
+                </a>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+                <div
+                    class="bg-image hover-overlay ripple shadow-1-strong rounded"
+                    data-ripple-color="light"
+                    >
+                <img
+                        src="https://s1.1zoom.me/big0/372/Spain_Temples_Houses_479082.jpg"
+                        class="w-100"
+                        />
+                <a href="#!">
+                    <div
+                        class="mask"
+                        style="background-color: rgba(251, 251, 251, 0.2);"
+                        ></div>
+                </a>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+                <div
+                    class="bg-image hover-overlay ripple shadow-1-strong rounded"
+                    data-ripple-color="light"
+                    >
+                <img
+                        src="https://media.istockphoto.com/id/1436983863/video/aerial-view-of-barcelona-skyline-with-sagrat-cor-temple-during-sunrise-catalonia-spain.jpg?s=640x640&k=20&c=vAc1Jb5nNEfvf-0zckqiFGY5M5kChE2YiRFKC5QJjMk="
+                        class="w-100"
+                        />
+                <a href="#!">
+                    <div
+                        class="mask"
+                        style="background-color: rgba(251, 251, 251, 0.2);"
+                        ></div>
+                </a>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+                <div
+                    class="bg-image hover-overlay ripple shadow-1-strong rounded"
+                    data-ripple-color="light"
+                    >
+                <img
+                        src="https://www.fodors.com/wp-content/uploads/2022/03/Hero-UPDATEBarcelona-iStock-1320014700-1.jpg"
+                        class="w-100"
+                        />
+                <a href="#!">
+                    <div
+                        class="mask"
+                        style="background-color: rgba(251, 251, 251, 0.2);"
+                        ></div>
+                </a>
+                </div>
+            </div>
+            </div>
+        </section>
+        
+        </div>
+        
+    
+        
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2020 Copyright:
+        <a class="text-white" href="https://www.etpxavier.com/es/">ETPXavier.com</a>
+        </div>
+    </footer>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
