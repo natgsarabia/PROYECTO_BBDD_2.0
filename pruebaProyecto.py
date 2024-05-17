@@ -65,10 +65,10 @@ def checkCodigoBarrio(barrioHTML):
     barrios = {
         "el Poblenou":4,
         "Sants":42,
-        "la Nova Esquerra de l'Eixample" : 43,
+        "la Nova Esquerra de l\'Eixample" : 43,
         "la Vila de Gracia" : 44,
         "Sant Pere, Santa Caterina i la Ribera" : 50,
-        "la Vall d'Hebron" : 54,
+        "la Vall d\'Hebron" : 54,
         "Pedralbes":57,
         "Vallvidrera-el Tibidabo-les Planes":58
     }
@@ -80,18 +80,21 @@ def checkCodigoBarrio(barrioHTML):
 def buscarContaminantes(myDB,listaContaminantes):
     nombresContamimantes=[]
     collection=myDB['Contaminantes']
-    i=0
-    for contaminante in listaContaminantes:
+    for i, contaminante in enumerate(listaContaminantes):
         query={'Codi_Contaminant': contaminante}
         iter=collection.find(query,{'_id':0,'Desc_Contaminant':1,'Unitats':1})
+
+        find=False
         for dato in iter:
-            informacionContaminante=dict(dato)
-            valoresDoc=informacionContaminante.items()
-            listaDatos=list(valoresDoc)
-            nombresContamimantes.insert(i,(listaDatos[0][1],listaDatos[1][1]))
-            i+=1
+            descripcion = dato.get('Desc_Contaminant', "CONTAMINANTE NO REGISTRADO")
+            unidades = dato.get('Unitats', "")
+            nombresContamimantes.append((descripcion, unidades))
+            find=True
+            
+        if not find:
+            nombresContamimantes.append(("CONTAMINANTE NO REGRISTRADO"," "))
            
-    return(nombresContamimantes)
+    return nombresContamimantes
 
 
 
@@ -109,6 +112,7 @@ def index():
 
     elif request.method=="POST":
         barrioHTML=request.form.get("barrioHTML")
+        print(barrioHTML)
         barrio=checkCodigoBarrio(barrioHTML)
         print('Nombre barrio '+barrioHTML+"     Codigo: "+str(barrio))
         print("___________________________________")
@@ -118,12 +122,14 @@ def index():
         print("___________________________________")
 
         informacionCentro=informacionEstacion(myDB,barrio)
+        print(informacionCentro)
         codigosContaminantesActivos,cantidadContaminanteAire=find(myDB, barrio, int(diaMes))
-        informacionContaminantes=buscarContaminantes(myDB,codigosContaminantesActivos)
         print(codigosContaminantesActivos)
+        print(cantidadContaminanteAire)
+        informacionContaminantes=buscarContaminantes(myDB,codigosContaminantesActivos)
+        print(informacionContaminantes)
         
         
-    
         return render_template("resultados.html",diaMes=diaMes,barrioHTML=barrioHTML,nombreCabina=informacionCentro[0][0],ubicacionCabina=informacionCentro[0][1],\
                                codigosContaminantesActivos=codigosContaminantesActivos,cantidadContaminanteAire=cantidadContaminanteAire,\
                                 informacionContaminantes=informacionContaminantes, bucle=int(len(codigosContaminantesActivos)))

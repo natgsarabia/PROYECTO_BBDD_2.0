@@ -39,11 +39,40 @@ body{
 
 /* MAIN */
 main{
-    display:block;
+    display:flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     font-family: 'MADE Coachella', sans-serif;
+    min-height: calc(100vh - 300px);
     
+}
+.containerMain{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(10, 77, 54, 0.6);
+    margin:5%;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.table{
+    text-align: center;
+    width: fit-content;
+    border:solid 3px rgb(227, 255, 209);
+    padding:10px;
+    border-radius: 5px;;
+}
+th{
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: rgb(227, 255, 209);
+    font-size: 140%;
+    text-shadow:
+    0.5px 0.5px 0 #052217,
+    -0.5px 0.5px 0 #052217,
+    -0.5px -0.5px 0 #052217,
+    0.5px -0.5px 0 #052217;
 }
 
 
@@ -51,7 +80,7 @@ main{
 /* FOOTER */
 
 footer {
-    position: fixed;
+    position: relative bottom;
     bottom: 0;
     width: 100%;
     height: 28%; 
