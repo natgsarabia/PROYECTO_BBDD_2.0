@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Consulta de Contaminación</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ url_for('static',filename='css/resultados.css')}}">
+    <link rel="stylesheet" href="C:\Users\Nati\Downloads\PROYECTO_BBDD_2.0\static\css\resultados.css">
     <link href="https://fonts.cdnfonts.com/css/made-coachella" rel="stylesheet">
 </head>
 <body>
@@ -17,54 +17,58 @@
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <p ><img src="{{ url_for('static', filename='/assets/logo.png') }}" height="150px" width="150px" alt="First slide"></p>
-                </div>  
-                {% if barrioHTML == 'el Poblenou' %}
-                    <img src="{{ url_for('static', filename='Assets/elpoblenou.jpeg') }}" height="150px" width="150px" alt="Imagen Barrio 1">
-                {% elif barrioHTML == 'Sants' %}
-                    <img src="{{ url_for('static', filename='Assets/sants.jpeg') }}" height="150px" width="150px" alt="Imagen Barrio 2">
-                {% elif barrioHTML == 'la Nova Esquerra de l\'Eixample' %}
-                    <img src="{{ url_for('static', filename='Assets/leixample.jpg') }}" height="150px" width="150px" alt="Imagen Barrio 3">
-                {% elif barrioHTML == 'la Vila de Gracia' %}
-                    <img src="{{ url_for('static', filename='Assets/gracia.jpeg') }}" height="150px" width="150px" alt="Imagen Barrio 4">
-                {% elif barrioHTML == 'Sant Pere, Santa Caterina i la Ribera' %}
-                    <img src="{{ url_for('static', filename='Assets/santperesantcatarina.jpg') }}" height="150px" width="150px" alt="Imagen Barrio 5">
-                {% elif barrioHTML == 'la Vall d\'Hebron' %}
-                    <img src="{{ url_for('static', filename='Assets/lavalldhebron.jpeg') }}" height="150px" width="150px" alt="Imagen Barrio 6">
-                {% elif barrioHTML == 'Pedralbes' %}
-                    <img src="{{ url_for('static', filename='Assets/pedralbes.jpeg') }}" height="150px" width="150px" alt="Imagen Barrio 7">
-                {% else %}
-                    <img src="{{ url_for('static', filename='Assets/avingudavallvidrera.jpg') }}" height="150px" width="150px" alt="Imagen Barrio 8">
-                {% endif %}           
+                </div>             
             </div>
         </div>
     </header>
     <main>
-        <div class="containerMain">
-            <div class="presentation">
-                <h1>Resultados</h1>
-                <p>La estacion se llama {{nombreCabina}}</p>
-                <p>Se encuentra en el barrio {{barrioHTML}}, distrito {{ubicacionCabina}}:</p>
-                <p>Los contaminantes en el aire del día {{diaMes}} de Marzo fueron:</p>
-            </div>
-            
-            <div class="table">
-                <table>
-                    <tr>
-                        <th>CODIGO</th>
-                        <th>NOMBRE</th>
-                        <th>CANTIDAD</th>
-                        </tr>
-                        {% for i in range(bucle) %}
+        <div>
+            {% if barrioHTML == 'el Poblenou' %}
+                <img src="{{ url_for('static', filename='/assets/elpoblenou.jpeg') }}" height="150px" width="150px" alt="Imagen Barrio 1">
+            {% elif barrioHTML == 'Sants' %}
+                <img src="{{ url_for('static', filename='/assets/sants.jpeg') }}" height="150px" width="150px" alt="Imagen Barrio 2">
+            {% elif barrioHTML == 'la Nova Esquerra de l\'Eixample' %}
+                <img src="{{ url_for('static', filename='/assets/leixample.jpg') }}" height="150px" width="150px" alt="Imagen Barrio 3">
+            {% elif barrioHTML == 'la Vila de Gracia' %}
+                <img src="{{ url_for('static', filename='/assets/gracia.jpeg') }}" height="150px" width="150px" alt="Imagen Barrio 4">
+            {% elif barrioHTML == 'Sant Pere, Santa Caterina i la Ribera' %}
+                <img src="{{ url_for('static', filename='/assets/santperesantcatarina.jpg') }}" height="150px" width="150px" alt="Imagen Barrio 5">
+            {% elif barrioHTML == 'la Vall d\'Hebron' %}
+                <img src="{{ url_for('static', filename='/assets/lavalldhebron.jpeg') }}" height="150px" width="150px" alt="Imagen Barrio 6">
+            {% elif barrioHTML == 'Pedralbes' %}
+                <img src="{{ url_for('static', filename='/assets/pedralbes.jpeg') }}" height="150px" width="150px" alt="Imagen Barrio 7">
+            {% else %}
+                <img src="{{ url_for('static', filename='/assets/avingudavallvidrera.jpg') }}" height="150px" width="150px" alt="Imagen Barrio 8">
+            {% endif %}
+        
+            <div class="containerMain">
+                <div class="presentation">
+                    <h1>Resultados</h1>
+                    <p>La estacion se llama {{nombreCabina}}</p>
+                    <p>Se encuentra en el barrio {{barrioHTML}}, distrito {{ubicacionCabina}}:</p>
+                    <p>Los contaminantes en el aire del día {{diaMes}} de Marzo fueron:</p>
+                </div>
+                
+                <div class="table">
+                    <table>
                         <tr>
-                            <td>{{codigosContaminantesActivos[i]}}</td>
-                            <td>{{informacionContaminantes[i][0]}}</td>
-                            <td>{{cantidadContaminanteAire[i]}} {{informacionContaminantes[i][1]}}</td>
-                        </tr>
-                        {% endfor %}
-                </table>
+                            <th>CODIGO</th>
+                            <th>NOMBRE</th>
+                            <th>CANTIDAD</th>
+                            </tr>
+                            {% for i in range(bucle) %}
+                            <tr>
+                                <td>{{codigosContaminantesActivos[i]}}</td>
+                                <td>{{informacionContaminantes[i][0]}}</td>
+                                <td>{{cantidadContaminanteAire[i]}} {{informacionContaminantes[i][1]}}</td>
+                            </tr>
+                            {% endfor %}
+                    </table>
+                </div>
             </div>
         </div>
     </main>
+    
    
 
     <footer class="text-center text-white" style="background-color: #caced1;">
