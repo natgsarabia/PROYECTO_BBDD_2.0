@@ -6,7 +6,7 @@ app = Flask(__name__, template_folder='templates')
 
 
 def iniciarMongoDB():
-    url = 'mongodb+srv://natgsarabia:Fsu6t4y5jUfhYQxI@contaminacionbcn.xbosddo.mongodb.net/'
+    url = 'mongodb+srv://NataliaS:1234@cluster0.mzvqdri.mongodb.net/'
 
     myClient = pymongo.MongoClient(url)
 
@@ -98,7 +98,7 @@ def buscarContaminantes(myDB,listaContaminantes):
 
 
 
-
+@app.route('/', methods=["GET","POST"])
 
 @app.route('/paginaInicio', methods=["GET","POST"])
 

@@ -15,9 +15,26 @@
         </nav>
         <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
-              <div class="carousel-item active">
-                <p ><img src="{{ url_for('static', filename='/assets/logo.png') }}" height="150px" width="150px" alt="First slide"></p>
-              </div>             
+                <div class="carousel-item active">
+                    <p ><img src="{{ url_for('static', filename='/assets/logo.png') }}" height="150px" width="150px" alt="First slide"></p>
+                </div>  
+                {% if barrioHTML == 'el Poblenou' %}
+                    <img src="{{ url_for('static', filename='Assets/elpoblenou.jpeg') }}" height="150px" width="150px" alt="Imagen Barrio 1">
+                {% elif barrioHTML == 'Sants' %}
+                    <img src="{{ url_for('static', filename='Assets/sants.jpeg') }}" height="150px" width="150px" alt="Imagen Barrio 2">
+                {% elif barrioHTML == 'la Nova Esquerra de l\'Eixample' %}
+                    <img src="{{ url_for('static', filename='Assets/leixample.jpg') }}" height="150px" width="150px" alt="Imagen Barrio 3">
+                {% elif barrioHTML == 'la Vila de Gracia' %}
+                    <img src="{{ url_for('static', filename='Assets/gracia.jpeg') }}" height="150px" width="150px" alt="Imagen Barrio 4">
+                {% elif barrioHTML == 'Sant Pere, Santa Caterina i la Ribera' %}
+                    <img src="{{ url_for('static', filename='Assets/santperesantcatarina.jpg') }}" height="150px" width="150px" alt="Imagen Barrio 5">
+                {% elif barrioHTML == 'la Vall d\'Hebron' %}
+                    <img src="{{ url_for('static', filename='Assets/lavalldhebron.jpeg') }}" height="150px" width="150px" alt="Imagen Barrio 6">
+                {% elif barrioHTML == 'Pedralbes' %}
+                    <img src="{{ url_for('static', filename='Assets/pedralbes.jpeg') }}" height="150px" width="150px" alt="Imagen Barrio 7">
+                {% else %}
+                    <img src="{{ url_for('static', filename='Assets/avingudavallvidrera.jpg') }}" height="150px" width="150px" alt="Imagen Barrio 8">
+                {% endif %}           
             </div>
         </div>
     </header>
