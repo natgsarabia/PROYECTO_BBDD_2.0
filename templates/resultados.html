@@ -7,6 +7,55 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ url_for('static',filename='css/resultados.css')}}">
     <link href="https://fonts.cdnfonts.com/css/made-coachella" rel="stylesheet">
+    {% if barrioHTML == 'el Poblenou' %}
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='/assets/poblenou.jpg') }}");
+        }
+    </style>
+    {% elif barrioHTML == 'Sants' %}
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='/assets/sants.jpg') }}");
+        }
+    </style>
+    {% elif barrioHTML == 'la Nova Esquerra de l\'Eixample' %}
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='/assets/lanovaEsquerra.jpeg') }}");
+        }
+    </style>
+    {% elif barrioHTML == 'la Vila de Gracia' %}
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='/assets/gracia.jpg') }}");
+        }
+    </style>
+    {% elif barrioHTML == 'Sant Pere, Santa Caterina i la Ribera' %}
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='/assets/santperesantcatarina.jpg') }}");
+        }
+    </style>
+    {% elif barrioHTML == 'la Vall d\'Hebron' %}
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='/assets/valldhebron.jpg') }}");
+        }
+    </style>
+    {% elif barrioHTML == 'Pedralbes' %}
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='/assets/pedralbes.jpg') }}");
+        }
+    </style>
+    {% else %}
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='/assets/avingudavallvidrera.jpg') }}");
+        }
+    </style>
+    {% endif %}
 </head>
 <body>
     <header>
@@ -23,23 +72,7 @@
     </header>
     <main>
         <div>
-            {% if barrioHTML == 'el Poblenou' %}
-                <img src="{{ url_for('static', filename='/assets/elpoblenou.jpeg') }}" height="150px" width="150px" alt="Imagen Barrio 1">
-            {% elif barrioHTML == 'Sants' %}
-                <img src="{{ url_for('static', filename='/assets/sants.jpeg') }}" height="150px" width="150px" alt="Imagen Barrio 2">
-            {% elif barrioHTML == 'la Nova Esquerra de l\'Eixample' %}
-                <img src="{{ url_for('static', filename='/assets/leixample.jpg') }}" height="150px" width="150px" alt="Imagen Barrio 3">
-            {% elif barrioHTML == 'la Vila de Gracia' %}
-                <img src="{{ url_for('static', filename='/assets/gracia.jpeg') }}" height="150px" width="150px" alt="Imagen Barrio 4">
-            {% elif barrioHTML == 'Sant Pere, Santa Caterina i la Ribera' %}
-                <img src="{{ url_for('static', filename='/assets/santperesantcatarina.jpg') }}" height="150px" width="150px" alt="Imagen Barrio 5">
-            {% elif barrioHTML == 'la Vall d\'Hebron' %}
-                <img src="{{ url_for('static', filename='/assets/lavalldhebron.jpeg') }}" height="150px" width="150px" alt="Imagen Barrio 6">
-            {% elif barrioHTML == 'Pedralbes' %}
-                <img src="{{ url_for('static', filename='/assets/pedralbes.jpeg') }}" height="150px" width="150px" alt="Imagen Barrio 7">
-            {% else %}
-                <img src="{{ url_for('static', filename='/assets/avingudavallvidrera.jpg') }}" height="150px" width="150px" alt="Imagen Barrio 8">
-            {% endif %}
+            
         
             <div class="containerMain">
                 <div class="presentation">
